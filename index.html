@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 / Privacy Policy — drawhome</title>
+<style>
+body { font-family: -apple-system, "Pretendard", "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
+h1 { font-size: 1.6em; } h2 { font-size: 1.2em; margin-top: 1.8em; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; font-size: 0.95em; }
+code { background: #f4f4f4; padding: 1px 5px; border-radius: 4px; }
+hr { border: 0; border-top: 1px solid #eee; margin: 2em 0; }
+.muted { color: #666; }
+</style>
+</head>
+<body>
+
+<h1>drawhome (드로우홈 — 손글씨 제스처 런처) 개인정보처리방침</h1>
+<p class="muted">최종 갱신: 2026-11-22 · 패키지 <code>app.drawhome</code></p>
+
+<h2>1. 개발자 및 문의처</h2>
+<p>앱: drawhome (드로우홈 — 손글씨 제스처 런처), 폰 앱 + Wear OS 컴패니언 앱.</p>
+<p>문의처: <code>[CONTACT_EMAIL]</code></p>
+
+<h2>2. 수집·처리하는 정보</h2>
+<p>본 앱은 회원가입·계정·서버가 없으며, 정보는 기본적으로 기기 내부에만 저장됩니다.</p>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>설치된 앱 목록</td><td>홈 화면 표시 및 도형(제스처) 연결 대상 선택을 위해 앱 이름·패키지명·아이콘을 읽음. 목록 자체는 영구 저장하지 않음.</td></tr>
+<tr><td>앱 실행 기록</td><td>최근 실행한 앱 키 목록(최대 8개), 기기 내 SharedPreferences.</td></tr>
+<tr><td>손글씨 도형 데이터</td><td>등록한 도형(획 좌표), 기기 내부 저장소(filesDir/gestures).</td></tr>
+<tr><td>음성 입력</td><td>음성 명령 시 녹음. 기기 내(on-device) 음성 인식만 사용하며, 저장·외부 전송 없음.</td></tr>
+<tr><td>설정값</td><td>테마·아이콘 스타일 등 앱 설정, 기기 내 SharedPreferences.</td></tr>
+<tr><td>워치 설정</td><td>즐겨찾기 앱, 도형, 강조색, 온보딩 여부(워치 기기 내 저장).</td></tr>
+</table>
+
+<h2>3. 권한 및 사용 목적</h2>
+<table>
+<tr><th>권한</th><th>목적</th></tr>
+<tr><td>RECORD_AUDIO (폰)</td><td>음성 명령. 온디바이스 인식 전용.</td></tr>
+<tr><td>POST_NOTIFICATIONS (폰)</td><td>워치에서 요청한 앱 실행 알림.</td></tr>
+<tr><td>WAKE_LOCK (워치)</td><td>알림·연결 처리 시 화면 유지.</td></tr>
+</table>
+<p>폰·워치 매니페스트 모두 <code>INTERNET</code> 권한이 없습니다.</p>
+
+<h2>4. 보관 위치 및 백업</h2>
+<p>폰: 도형 파일 — 앱 전용 내부 저장소, 실행 기록·설정 — 앱 전용 SharedPreferences.<br>
+워치: 즐겨찾기·도형·설정 — 워치 내 앱 전용 저장소.<br>
+양쪽 모두 <code>allowBackup=false</code> — 시스템 클라우드 백업 대상이 아님. 도형 내보내기는 사용자가 지정한 위치에 JSON으로 저장되며, 이후 취급은 사용자 책임입니다.</p>
+
+<h2>5. 제3자 제공·공유</h2>
+<p>광고·분석·크래시 리포트 SDK가 없고, 데이터를 수집하는 자체 서버가 없습니다. 제3자에게 개인정보를 판매·제공하지 않습니다.<br>
+예외: 폰↔워치 간 도형 데이터 전송에 Google Play 서비스의 Wear Data Layer를 사용합니다(아래 6번).</p>
+
+<h2>6. Wear Data Layer 주의</h2>
+<p>폰↔워치 연결은 Google Play 서비스의 Wear Data Layer를 경유하며 Google 서버를 거칠 수 있습니다. 전송 내용: 워치→폰 <code>/ai</code> 빈 요청, 폰→워치 <code>/shapes</code> 도형 좌표 + 연결된 앱 이름(최대 8개). 앱 자체는 인터넷 접속 권한이 없습니다.</p>
+
+<h2>7. 제3자 앱 실행</h2>
+<p>워치 AI 요청 시 폰에서 사용자가 선택한 앱이 실행됩니다. 이때 텍스트·음성 데이터는 전달되지 않으며, 이후 처리는 해당 앱의 개인정보처리방침이 적용됩니다. 음성으로 앱 설치를 명령하면 앱 스토어(Play 스토어)가 열립니다.</p>
+
+<h2>8. 보안</h2>
+<p>워치→폰 요청은 페어링된 기기에서만 수신. 잠금 상태의 폰은 도형 데이터를 워치로 내보내지 않음. 도형 가져오기(import)는 크기·개수·좌표 범위를 검증 후 처리.</p>
+
+<h2>9. 데이터 보유 기간 및 삭제</h2>
+<p>회원 계정이 없으므로 계정 삭제 요청은 해당 없습니다. 모든 데이터는 사용자가 앱 내에서 삭제할 수 있으며, 앱 삭제 시 기기에서 함께 삭제됩니다(외부 영구 저장소 없음).</p>
+
+<h2>10. 사용자 권리</h2>
+<p>도형·실행 기록·설정은 앱 내에서 삭제 가능. 음성 데이터는 기기에 저장되지 않습니다(온디바이스 인식).</p>
+
+<hr>
+
+<h1>drawhome Privacy Policy (English)</h1>
+<p class="muted">Last updated: 2026-11-22 · Package <code>app.drawhome</code></p>
+
+<h2>1. Developer &amp; Contact</h2>
+<p>App: drawhome (draw-to-open launcher), phone app + Wear OS companion.</p>
+<p>Contact: <code>[CONTACT_EMAIL]</code></p>
+
+<h2>2. Data collected</h2>
+<p>No sign-up, no account, no server. Data stays on the device.</p>
+<table>
+<tr><th>Data</th><th>Details</th></tr>
+<tr><td>Installed apps list</td><td>Read for the launcher list and gesture targets; not persisted.</td></tr>
+<tr><td>Recent app keys</td><td>Up to 8, stored locally.</td></tr>
+<tr><td>Handwriting shapes</td><td>Stroke coordinates, stored in the app's internal storage.</td></tr>
+<tr><td>Voice</td><td>On-device speech recognition only; not stored or transmitted.</td></tr>
+<tr><td>Settings</td><td>Theme/icon preferences, stored locally.</td></tr>
+<tr><td>Watch settings</td><td>Favorites, shapes, accent, onboarding flag (stored on the watch).</td></tr>
+</table>
+
+<h2>3. Permissions</h2>
+<table>
+<tr><th>Permission</th><th>Purpose</th></tr>
+<tr><td>RECORD_AUDIO (phone)</td><td>Voice commands, on-device only.</td></tr>
+<tr><td>POST_NOTIFICATIONS (phone)</td><td>Watch-initiated launch notification.</td></tr>
+<tr><td>WAKE_LOCK (watch)</td><td>Keep screen during connection handling.</td></tr>
+</table>
+<p>Neither manifest declares <code>INTERNET</code>.</p>
+
+<h2>4. Storage &amp; backup</h2>
+<p>All data is in the app's private storage with <code>allowBackup=false</code>. Exported shapes are written to a user-chosen location.</p>
+
+<h2>5. Third parties</h2>
+<p>No ads, analytics, or crash-reporting SDKs. No server. No sale or sharing of personal data.<br>
+Exception: phone↔watch shape sync uses Google Play services' Wear Data Layer (see 6).</p>
+
+<h2>6. Wear Data Layer</h2>
+<p>Phone↔watch sync goes through Google Play services and may pass through Google servers: watch→phone <code>/ai</code> empty request, phone→watch <code>/shapes</code> (coordinates + up to 8 app names). The app itself has no internet permission.</p>
+
+<h2>7. Third-party app launch</h2>
+<p>A watch AI request launches an app you picked on the phone; no text or audio is passed. Asking the app to install something by voice opens the app store.</p>
+
+<h2>8. Security</h2>
+<p>Watch requests are accepted from paired devices only; a locked phone does not export shapes to the watch; imports are validated for size, count, and coordinate range.</p>
+
+<h2>9. Retention &amp; deletion</h2>
+<p>No accounts. All data is deletable in-app and removed when the app is uninstalled.</p>
+
+<h2>10. Your rights</h2>
+<p>Shapes, recents, and settings are deletable in-app. Voice is not stored.</p>
+
+</body>
+</html>
